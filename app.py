@@ -150,3 +150,6 @@ with col2:
         audio_file = text_to_speech(translated_caption, output_file=os.path.join("outputs", "output_audio.mp3"))
 
         audio_placeholder.audio(audio_file, format='audio/mp3')
+
+        with open(audio_file, "rb") as f:
+            st.download_button(label=" Download Audio", data=f, file_name="output_audio.mp3", mime="audio/mp3")
